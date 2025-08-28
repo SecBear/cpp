@@ -18,14 +18,14 @@ pkgs.mkShell {
 
   # Load custom bash code
   shellHook = ''
-    alias clangd="clang++ -DDEBUG -pedantic-errors -std=c++23 main.cpp -o main_debug"
-    alias clangr="clang++ -O3 -DNDEBUG -pedantic-errors -std=c++23 -march=native main.cpp -o main_release"
+    alias clangd="clang++ -DDEBUG -pedantic-errors -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -std=c++23 main.cpp -o main_debug"
+    alias clangr="clang++ -O3 -DNDEBUG -pedantic-errors -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -std=c++23 -march=native main.cpp -o main_release"
     echo " ---\ "
     echo " + C++23 development environment"
     echo " + Clang version: $(clang++ --version | head -n1)"
     echo " + To compile: "
-    echo " +  - DEBUG:   clangd"
-    echo " +  - RELEASE: clangr"
+    echo " +  - DEBUG:   clang++ -DDEBUG -pedantic-errors -Werror -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -std=c++23 main.cpp -o main_debug"
+    echo " +  - RELEASE: clang++ -O3 -DNDEBUG -pedantic-errors -Werror -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -std=c++23 -march=native main.cpp -o main_release"
     echo " ---/ "
   '';
 }
