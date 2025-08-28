@@ -18,6 +18,10 @@ pkgs.mkShell {
 
   # Load custom bash code
   shellHook = ''
-
+    echo " ---\ "
+    echo " + C++23 development environment"
+    echo " + Clang version: $(clang++ --version | head -n1)"
+    echo " + To compile: clang++ -std=c++23 -stdlib=libc++ file.cpp"
+    echo " ---/ "
   '';
 }
